@@ -5,31 +5,20 @@ use App\Models\Etudiant;
 use Illuminate\Http\Request;
 
 class EtudiantController extends Controller
-{
-    public function index(){
-
+ {
+    public function index()
+     {
       $etudiants = Etudiant::all();
       return view('etudiant.index', ["etudiants" => $etudiants]);
-
      }
-     public function about(){
 
-        return view('about');
-
+     public function create()
+     {
+      return view('etudiant.create');
      }
-     public function article(){
 
-        return view('article');
-
+     public function show(Etudiant $etudiant)
+     {
+         return view('etudiant.show', ['etudiant'=>$etudiant]);
      }
-     public function contact(){
-
-        return view('contact');
-
-     }
-     public function contactForm(Request $request){
-
-       return view('contact', ['data'=> $request]);
-
-     }
-}
+ }     
