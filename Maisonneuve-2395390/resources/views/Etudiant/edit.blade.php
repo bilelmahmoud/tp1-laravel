@@ -55,12 +55,12 @@
                 <label for="ville_id" class="form-label">Ville</label>
                 <select class="form-select" id="ville_id" name="ville_id" >
                     @foreach ($villes as $ville)
-                        <option value="{{ $ville->id }}">{{ $ville->id}}  </option>
+                        <option value="{{ $ville->id }}">{{ $ville->name}}  </option>
                     @endforeach
                 </select>
-                @if ($errors->has('$ville->id'))
+                @if ($errors->has('$ville->name'))
                     <div class="text-danger mt-2">
-                        {{$errors->first('$ville->id')}}
+                        {{$errors->first('$ville->name')}}
                     </div>
                 @endif
             </div>
