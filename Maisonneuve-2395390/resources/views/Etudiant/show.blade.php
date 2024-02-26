@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Task List')
+@section('title', 'student List')
 @section('content')
 
 
@@ -16,9 +16,36 @@
                         </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-end">
-                    <a href="{{ route('etudiant.show', $etudiant->id) }}" class="btn btn-sm btn-outline-primary">View</a>
+                    <a href="{{ route('etudiant.edit', $etudiant->id) }}" class="btn btn-sm btn-outline-success ">Edit</a>
+                    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        Delete
+                    </button>
                     </div>
                 </div>
             </div>
         </div>
+
+        
+    <!-- {{-- Bootstrap Modal --}} -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h1 class="modal-title fs-5 text-danger" id="DeleteModalLabel">DELETE</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Are you sure to delete this student?
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <form method="POST">
+            @csrf
+            @method('delete')
+            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+        </form>
+        </div>
+    </div>
+    </div>
+</div>
         @endsection

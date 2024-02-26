@@ -26,7 +26,7 @@ class EtudiantController extends Controller
      }
 
      public function store(Request $request)
-{
+    {
     $request->validate([
         'nom' => 'required|string|max:255',
         'adresse' => 'required|string|max:255',
@@ -46,6 +46,44 @@ class EtudiantController extends Controller
     ]);
 
     return redirect()->route('etudiant.show', $etudiant->id)->with('success', 'Étudiant créé avec succès.');
-}
+    }
+
+    public function edit(Etudiant $etudiant)
+    {
+    $villes = Ville::all(); 
+    return view('etudiant.edit', ['etudiant'=>$etudiant, 'villes'=>$villes]);
+    }
+
+    public function update(Request $request, Etudiant $etudiant)
+
+    {
+    $request->validate([
+        'nom' => 'required|string|max:255',
+        'adresse' => 'required|string|max:255',
+        'téléphone' => 'required|string|max:20',
+        'email' => 'required|email|max:255',
+        'date_de_naissance' => 'required|date',
+        'ville_id' => 'required|exists:villes,id',
+    ]);
+
+
+    $etudiant->update([
+        'nom' => $request->nom,
+        'adresse' => $request->adresse,
+        'téléphone' => $request->téléphone,
+        'email' => $request->email,
+        'date_de_naissance' => $request->date_de_naissance,
+        'ville_id' => $request->ville_id,
+    ]);
+
+    return redirect()->route('etudiant.show', $etudiant->id)->with('success', 'student updated successfully.');
+    }
+    
+    public function destroy(Etudiant $etudiant)
+    {
+    $etudiant->delete();
+
+    return redirect()->route('etudiant.index')->with('success', 'Student deleted successfully.');
+    }
 
  }     
