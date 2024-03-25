@@ -4,7 +4,7 @@
         <!-- Page content-->
       
     <div class="container mt-5">
-        <h1 class="my-5 text-center" style="#2E294E">Liste des Étudiants</h1>
+    <h1 class="my-5 text-center" style="#2E294E">@lang("lang.text_title")</h1>
         <div class="row">
             @forelse($etudiants as $etudiant)
             <div class="col-md-4 mb-4">
@@ -21,7 +21,7 @@
                         </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-end">
-                    <a href="{{ route('etudiant.show', $etudiant->id) }}" class="btn btn-sm btn-outline-primary">View</a>
+                    <a href="{{ route('etudiant.show', $etudiant->id) }}" class="btn btn-sm btn-outline-primary">@lang("lang.text_view_etudiant")</a>
                 
                     
                     </div>

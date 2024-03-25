@@ -19,8 +19,11 @@ return new class extends Migration
             $table->string('email');
             $table->date('date_de_naissance');
             $table->unsignedBigInteger('ville_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('ville_id')->references('id')->on('villes')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
             $table->timestamps();
+            
         });
     }
 

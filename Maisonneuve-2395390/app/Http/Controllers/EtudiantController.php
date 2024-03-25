@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Etudiant;
 use App\Models\Ville;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class EtudiantController extends Controller
  {
@@ -34,7 +36,16 @@ class EtudiantController extends Controller
         'email' => 'required|email|max:255',
         'date_de_naissance' => 'required|date',
         'ville_id' => 'required|exists:villes,id',
+        
     ]);
+
+    $user = User::create([
+       'name' => $request->nom,
+       'email' => $request->email,
+       'password' => Hash::make($request->password)
+    ]);
+
+
 
     $etudiant = Etudiant::create([
         'nom' => $request->nom,
@@ -43,7 +54,11 @@ class EtudiantController extends Controller
         'email' => $request->email,
         'date_de_naissance' => $request->date_de_naissance,
         'ville_id' => $request->ville_id,
+        'user_id' => $user->id,
+       
+        
     ]);
+    
 
     return redirect()->route('etudiant.show', $etudiant->id)->with('success', 'Étudiant créé avec succès.');
     }

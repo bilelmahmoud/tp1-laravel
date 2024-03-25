@@ -2,8 +2,8 @@
 @section('title', 'Add Task')
 @section('content')
     <div class="container mt-5">
-        <h1 class="my-5 text-center">@lang('lang.text_registration')</h1>
-        <form  method="post">
+        <h1 class="my-5 text-center">Ajouter un Étudiant</h1>
+        <form action="{{ route('etudiant.store') }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="nom" class="form-label">Nom</label>
@@ -63,7 +63,6 @@
                     </div>
                 @endif
             </div>
-
             <div class="mb-3">
                 <label for="password" class="form-label">Mot de passe</label>
                 <input type="password" class="form-control" id="password" name="password">
@@ -73,7 +72,6 @@
                     </div>
                 @endif
             </div>
-           
             <button type="submit" class="btn btn-primary">Ajouter Étudiant</button>
         </form>
     </div>
