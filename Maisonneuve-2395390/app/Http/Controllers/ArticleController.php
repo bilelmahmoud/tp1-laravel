@@ -75,10 +75,8 @@ public function edit(Article $article)
 
     public function destroy(Article $article)
     {
-        // Supprimer l'article de la base de données
-        $article->delete();
 
-        // Rediriger vers la liste des articles
+        $article->delete();
         return redirect()->route('article.index');
     }
 

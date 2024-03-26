@@ -23,12 +23,21 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    Anis Elbez
-<li class="nav-item"><a href="" class="nav-link">@lang('lang.text_hello') @if(Auth::check()) {{ Auth::user()->name }} @else @lang('lang.guest') @endif</a></li>
+                  
+                        <li class="nav-item">
+                            @if(Auth::check())
+                                <a href="#" class="nav-link">{{ Auth::user()->name }}</a>
+                            @endif
+                        </li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ route('etudiant.index') }}">@lang("lang.menu_accueil")</a></li>
                         <li><a class="nav-item"><a class="nav-link active" aria-current="page" href="{{route('etudiant.create')}}">registration</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ route('article.index') }}">@lang("lang.text_article")</a></li>
+                        <li class="nav-item"> <a class="nav-link active" href="{{ route('document.index') }}">@lang("lang.text_document")</a></li>
                         <li><a class="nav-item"><a class="nav-link active" aria-current="page" href="{{ route('article.create') }}">@lang("lang.text_add_article")</a></li>
+                        <li class="nav-item"> <a class="nav-link active" href="{{ route('document.create') }}">@lang("lang.text_add_document")</a></li>
+                     
+                           
+                        
                         
 
                         <ul class="navbar-nav  mb-2 mb-sm-0">
@@ -68,12 +77,6 @@
         <!-- Content -->
         @yield('content')
 
-        <!-- <footer class="footer mt-auto py-2 bg-dark text-white">
-        <div class="container text-center">
-            &copy; {{ date('Y')}} {{config('app.name') }}. All Rights Reserved
-        </div>
-
-        </footer> -->
     
 </body>
    <!-- Bootstrap core JS-->

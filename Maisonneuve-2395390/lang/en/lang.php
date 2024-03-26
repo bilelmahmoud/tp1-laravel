@@ -16,6 +16,8 @@ return [
     'text_edit' => 'Edit',
     'text_article' => 'article',
     'text_add_article' => 'add an article',
+    'text_add_document' => 'add a document',
+    'text_document' => 'document',
     'text_create' => 'Create',
     'text_login'=> 'Login',
     'text_email' => 'Email',

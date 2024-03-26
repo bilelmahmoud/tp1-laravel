@@ -42,18 +42,16 @@
             @auth
                 @if ($article->etudiant_id === Auth::user()->etudiant->id)
                 <div>
-                    <a href="{{ route('article.edit', $article->id) }}" class="btn btn-link text-black">Modifier</a>
+                    <a href="{{ route('article.edit', $article->id) }}" class="btn btn-sm btn-outline-success ">Modifier</a>
                     <form action="{{ route('article.destroy', $article->id) }}" method="POST" style="display: inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-link text-black">Supprimer</button>
+                        <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
                     </form>
                 </div>  
                 @endif
             @endauth
-            <div>
-                <a href="{{ route('showPdf', $article->id) }}" class="btn btn-warning " target="_blank">Voir en PDF</a>
-            </div>
+            
         </div>
     </div>
 @endsection

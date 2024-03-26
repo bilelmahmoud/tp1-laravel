@@ -17,7 +17,7 @@
                         <p>@lang('lang.text_written_by') : <span class="fw-bold">{{ $article->etudiant->nom }}</span></p>
                     </div>
                     <div class="card-footer">
-                        <a href="{{ route('article.show', $article->id) }}" class="text-black">@lang('lang.text_view')</a>
+                        <a href="{{ route('article.show', $article->id) }}" class="btn btn-sm btn-outline-success ">@lang('lang.text_view')</a>
                     </div>
                 </div>
             @endif

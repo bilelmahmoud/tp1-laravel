@@ -10,7 +10,7 @@
             @csrf
 
             <div class="mb-3">
-                <label for="document_nom_fr" class="form-label">Titre du document (français)</label>
+                <label for="document_nom_fr" class="form-label">Titre du document (français) obligatoire</label>
                 <input type="text" class="form-control" id="document_nom_fr" name="document_nom_fr" >
             </div>
 

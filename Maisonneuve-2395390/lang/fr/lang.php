@@ -15,6 +15,8 @@ return [
     'text_written_by' => 'Écrit par',
     'text_edit' => 'Modifier',
     'text_article' => 'article',
+    'text_document' => 'document',
+    'text_add_document' => 'ajouter un document',
     'text_add_article' => 'ajouter un article',
     'text_create' => 'Créer',
     'text_login'=> 'Connecter',

@@ -46,40 +46,13 @@ class DocumentController extends Controller
 
     return redirect()->route('document.index')->with('success', 'Le document a été partagé avec succès.');
 }
-public function edit($id)
+
+
+
+public function destroy(Document $document)
 {
-    $document = Document::findOrFail($id);
+        $document->delete();
+        return redirect()->route('document.index');
 
-    // Vérifie si l'utilisateur connecté est l'élève qui a partagé le document
-    if ($document->etudiant_id !== Auth::user()->etudiant->id) {
-        abort(403, 'Unauthorized action.'); // Retourne une erreur 403 si l'utilisateur n'est pas autorisé
-    }
-
-    // Si l'utilisateur est autorisé, afficher la vue d'édition
-    return view('documents.edit', compact('document'));
-}
-
-public function update(Request $request, $id)
-{
-    $document = Document::findOrFail($id);
-
-    // Vérifie si l'utilisateur connecté est l'élève qui a partagé le document
-    if ($document->etudiant_id !== Auth::user()->etudiant->id) {
-        abort(403, 'Unauthorized action.'); // Retourne une erreur 403 si l'utilisateur n'est pas autorisé
-    }
-
-    // Logique de validation et de mise à jour du document ici
-}
-
-public function destroy($id)
-{
-    $document = Document::findOrFail($id);
-
-    // Vérifie si l'utilisateur connecté est l'élève qui a partagé le document
-    if ($document->etudiant_id !== Auth::user()->etudiant->id) {
-        abort(403, 'Unauthorized action.'); // Retourne une erreur 403 si l'utilisateur n'est pas autorisé
-    }
-
-    // Logique de suppression du document ici
 }
 }

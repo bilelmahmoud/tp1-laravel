@@ -60,6 +60,7 @@ Route::get('/documents', [DocumentController::class, 'index'])->name('document.i
 Route::get('/create/document', [DocumentController::class, 'create'])->name('document.create')->middleware('auth');
 Route::post('/create/document', [DocumentController::class, 'store'])->name('document.store')->middleware('auth');
 Route::get('/document/{document}', [DocumentController::class, 'show'])->name('document.show')->middleware('auth');
+Route::delete('/document/{document}', [DocumentController::class, 'destroy'])->name('document.destroy');
 
 
 
